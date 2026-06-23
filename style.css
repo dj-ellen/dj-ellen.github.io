@@ -1,0 +1,722 @@
+/* ==========================================================================
+   DJ ELLEN — UNIVERSEEL STYLESHEET
+   Ecstatic Dance / aards & warm design system
+   Geen externe libraries — pure CSS, Flexbox & Grid
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS (CSS Variabelen)
+   Centraal kleurenpalet, typografie en spacing-schaal.
+   Wijzig hier en de hele site past zich aan.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Kleuren — aards en warm */
+  --color-terra: #c1612f;        /* terracotta — primaire accentkleur (knoppen, links) */
+  --color-terra-dark: #9c4a21;   /* donkerder terra — hover states */
+  --color-oker: #c98a2c;         /* oker — secundair accent */
+  --color-mos: #6b7a4f;          /* mosgroen — tertiair accent, natuurlijke details */
+  --color-mos-dark: #525e3c;     /* donker mosgroen — hover op groene elementen */
+
+  --color-text: #3b2f28;         /* diep warm bruin — hoofdtekstkleur */
+  --color-text-zacht: #5c4d42;   /* zachtere tekst voor subteksten */
+  --color-zand: #f3ead9;         /* zachte zandkleur — paginacontainer-achtergronden */
+  --color-zand-donker: #e8dcc4;  /* iets donkerder zand — randen, scheidingen */
+  --color-wit-warm: #fdfaf4;     /* warm bijna-wit — kaarten, lichte vlakken */
+
+  --color-body-bg: #ece2cd;      /* basis achtergrondkleur van de pagina (onder patroon) */
+
+  /* Typografie */
+  --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Jost', 'Segoe UI', system-ui, sans-serif;
+
+  --fs-h1: clamp(2.4rem, 5vw, 4rem);
+  --fs-h2: clamp(1.8rem, 3.5vw, 2.6rem);
+  --fs-h3: clamp(1.3rem, 2.2vw, 1.7rem);
+  --fs-body: 1.05rem;
+  --fs-small: 0.875rem;
+
+  /* Spacing-schaal (consistente witruimte) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+
+  /* Overige */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-zacht: 0 4px 20px rgba(59, 47, 40, 0.08);
+  --shadow-hover: 0 8px 28px rgba(59, 47, 40, 0.14);
+  --max-width: 1140px;
+  --transition: 0.25s ease;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASISINSTELLINGEN
+   Minimale, moderne reset zonder externe dependencies.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  line-height: 1.65;
+  background-color: var(--color-body-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-terra);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-terra-dark);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Toegankelijkheid: duidelijke focus-indicator op alle interactieve elementen */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-oker);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Respecteer voorkeur voor minder beweging */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. ACHTERGRONDPATROON (BODY)
+   Subtiel, herhalend SVG-patroon met gestileerde bladmotieven.
+   Vast op de achtergrond (fixed) zodat het niet meebeweegt met scroll-content,
+   en met een laag zandkleur erboven voor leesbaarheid.
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--color-body-bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%236b7a4f' stroke-width='1.1' opacity='0.16'%3E%3Cpath d='M30 130 C30 100 45 80 30 50 C15 80 30 100 30 130 Z'/%3E%3Cpath d='M30 95 C30 95 45 90 50 80'/%3E%3Cpath d='M30 95 C30 95 15 90 10 80'/%3E%3Ccircle cx='120' cy='35' r='14'/%3E%3Cpath d='M120 21 L120 49 M106 35 L134 35 M111 26 L129 44 M111 44 L129 26'/%3E%3Cpath d='M75 120 Q90 105 105 120 Q90 135 75 120 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 160px 160px;
+  background-attachment: fixed;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. LAYOUT — ALGEMENE STRUCTUUR
+   Container, header/nav, main, footer.
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* --- Header & navigatie --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(243, 234, 217, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-zand-donker);
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-sm);
+}
+
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.03em;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.navbar__links a {
+  color: var(--color-text-zacht);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.navbar__links a:hover,
+.navbar__links a.is-active {
+  color: var(--color-terra);
+}
+
+/* Hamburger-knop (mobiel) — puur CSS, geen JS-library nodig */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 110;
+}
+
+.navbar__toggle span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* --- Main content area --- */
+.site-main {
+  display: block;
+  width: 100%;
+}
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section--zand {
+  background-color: var(--color-zand);
+}
+
+.section__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  color: var(--color-terra-dark);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.section__intro {
+  max-width: 640px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+  color: var(--color-text-zacht);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--color-text);
+  color: var(--color-zand);
+  padding-block: var(--space-lg) var(--space-md);
+}
+
+.site-footer a {
+  color: var(--color-oker);
+}
+
+.site-footer a:hover {
+  color: var(--color-wit-warm);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.footer__bottom {
+  text-align: center;
+  font-size: var(--fs-small);
+  opacity: 0.7;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(243, 234, 217, 0.15);
+}
+
+
+/* --- Hero-sectie (intro boven aan een pagina, met begeleidende illustratie) --- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding-block: var(--space-xl);
+}
+
+.hero__text {
+  flex: 1 1 420px;
+}
+
+.hero__intro {
+  font-size: 1.15rem;
+  max-width: 50ch;
+  margin-bottom: var(--space-md);
+}
+
+.hero__visual {
+  flex: 1 1 280px;
+  max-width: 320px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-block: var(--space-lg);
+  }
+
+  /* Reset flex-basis: de breedte-waarden (420px/280px) mogen niet als
+     hoogte-basis gelden zodra de richting naar column kantelt — anders
+     reserveert de browser onnodige verticale ruimte op het omslagpunt. */
+  .hero__text,
+  .hero__visual {
+    flex: 0 1 auto;
+  }
+
+  .hero__visual {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
+
+/* --- Evenement-kaarten (agenda) --- */
+.event-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.event-card__info {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-meta {
+  margin-top: var(--space-xs);
+}
+
+.event-meta li {
+  color: var(--color-text-zacht);
+  margin-bottom: 0.25rem;
+}
+
+.event-meta strong {
+  color: var(--color-text);
+}
+
+.event-card--compact {
+  text-align: center;
+}
+
+.event-card--compact .event-meta {
+  text-align: left;
+  margin-top: var(--space-sm);
+}
+
+/* --- Affiche-placeholder: kader voor toekomstige afbeelding/poster --- */
+.poster-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  border: 2px dashed var(--color-zand-donker);
+  border-radius: var(--radius);
+  background-color: var(--color-zand);
+  color: var(--color-text-zacht);
+  font-size: var(--fs-small);
+  text-align: center;
+}
+
+.poster-placeholder--large {
+  flex: 1 1 280px;
+  min-height: 280px;
+  padding: var(--space-md);
+}
+
+.poster-placeholder--small {
+  width: 100%;
+  min-height: 140px;
+  margin-bottom: var(--space-sm);
+}
+
+
+/* --- Gedichten: rustige, gecentreerde tekstblokken --- */
+.poem {
+  max-width: 640px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+}
+
+.poem:last-child {
+  margin-bottom: 0;
+}
+
+.poem__title {
+  font-style: italic;
+  font-size: var(--fs-h3);
+  color: var(--color-terra-dark);
+  margin-bottom: var(--space-xs);
+  position: relative;
+}
+
+/* Kleine sierlijke lijn onder de titel, als rustpunt */
+.poem__title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-mos);
+  margin: var(--space-xs) auto 0;
+  opacity: 0.6;
+}
+
+/* white-space: pre-line bewaart handmatige enters uit de brontekst als strofewisselingen */
+.poem__text {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 2;
+  color: var(--color-text);
+  white-space: pre-line;
+  margin: 0 auto;
+}
+
+
+/* --- Fotokaders: herbruikbare container voor affiches/foto's binnen het palet --- */
+.photo-frame {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-zand-donker);
+  border-radius: var(--radius);
+  background-color: var(--color-wit-warm);
+  padding: var(--space-xs);
+  box-shadow: var(--shadow-zacht);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  display: block;
+}
+
+.photo-frame--square { aspect-ratio: 1 / 1; }
+.photo-frame--wide { aspect-ratio: 16 / 9; }
+.photo-frame--portrait { aspect-ratio: 3 / 4; }
+
+/* Gecentreerde, smallere variant — bijvoorbeeld een fotokader bij een gedicht */
+.photo-frame--centered {
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+/* --- Kleine inline iconen: consistente afmeting/kleur voor symbooltjes naast titels --- */
+.icon-inline {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.22em;
+  margin-right: 0.4em;
+  fill: none;
+  stroke: var(--color-terra);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* --- Gecentreerd icoon boven een kaarttitel: geen rand, geen achtergrond --- */
+.icon-block {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto var(--space-sm);
+  fill: none;
+  stroke: var(--color-mos);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. TYPOGRAFIE
+   Rustgevende, vlot leesbare schaal voor koppen en tekst.
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-zacht);
+  max-width: 70ch;
+}
+
+.text-center { text-align: center; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-mos);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. HERBRUIKBARE COMPONENTEN — KAARTEN / KADERS
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--color-wit-warm);
+  border: 1px solid var(--color-zand-donker);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-zacht);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-xs);
+  color: var(--color-terra-dark);
+}
+
+/* Kader-variant met dunne accentrand links — handig voor quotes, info-blokken */
+.card--accent {
+  border-left: 4px solid var(--color-mos);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. HERBRUIKBARE COMPONENTEN — KNOPPEN
+   Voor o.a. Mixcloud-links, agenda-acties, contactlinks.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+/* Primaire knop — terracotta, gevuld */
+.btn--primary {
+  background-color: var(--color-terra);
+  color: var(--color-wit-warm);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-terra-dark);
+  transform: translateY(-2px);
+  color: var(--color-wit-warm);
+}
+
+/* Secundaire knop — oker outline */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-oker);
+  border: 2px solid var(--color-oker);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-oker);
+  color: var(--color-wit-warm);
+}
+
+/* Mixcloud / luisterknop — mosgroen, specifiek voor embedded sets */
+.btn--listen {
+  background-color: var(--color-mos);
+  color: var(--color-wit-warm);
+}
+
+.btn--listen:hover {
+  background-color: var(--color-mos-dark);
+  transform: translateY(-2px);
+}
+
+.btn--small {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. HERBRUIKBARE GRID-LAYOUTS
+   Flexibele grids voor agenda, sets, galerijen — pas kolomaantal aan per pagina.
+   -------------------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Auto-fit variant: kolommen passen zich automatisch aan beschikbare ruimte aan */
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Flex-rij variant voor horizontale lijsten (bv. tags, kleine items) */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.flex-row--center {
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. UTILITIES
+   Kleine herbruikbare hulpklassen.
+   -------------------------------------------------------------------------- */
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+.hidden { display: none; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE — MOBIEL (≤ 768px)
+   Hamburger-navigatie, grids worden enkele kolom, kleinere spacing.
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  /* Mobiel navigatiemenu: full-width dropdown onder de header */
+  .navbar__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background-color: var(--color-zand);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-zand-donker);
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+  }
+
+  /* Activeer via JS met klasse .is-open op .navbar__links */
+  .navbar__links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding-block: var(--space-lg);
+  }
+
+  .footer__grid {
+    text-align: center;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVE — TABLET (769px – 1024px)
+   Grids met 3-4 kolommen vallen terug naar 2 kolommen.
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

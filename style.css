@@ -266,6 +266,44 @@ body {
   margin-bottom: var(--space-md);
 }
 
+/* Tagline in de footer: lichte, warme zandkleur i.p.v. de te donkere
+   standaard tekstkleur, voor voldoende contrast op de donkere achtergrond */
+.footer__tagline {
+  color: var(--color-zand);
+  opacity: 0.9;
+  font-size: 1.05rem;
+}
+
+/* Kleinere navigatielinks in de footer */
+.footer__nav-links a {
+  font-size: var(--fs-small);
+}
+
+.footer__nav-links li {
+  margin-bottom: 0.4rem;
+}
+
+/* Contactgegevens met klein icoontje per regel */
+.footer__contact {
+  margin-top: var(--space-sm);
+}
+
+.footer__contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--color-zand);
+  opacity: 0.9;
+}
+
+.footer__contact .icon-inline {
+  stroke: var(--color-oker);
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
 .footer__bottom {
   text-align: center;
   font-size: var(--fs-small);
@@ -386,14 +424,15 @@ body {
 
 
 /* --- Gedichten: rustige, gecentreerde tekstblokken --- */
-.poem {
-  max-width: 640px;
-  margin: 0 auto var(--space-xl);
+.poem.card {
+  flex: 1 1 420px;
+  max-width: 520px;
+  margin-bottom: 0;
   text-align: center;
 }
 
-.poem:last-child {
-  margin-bottom: 0;
+.poem.card .photo-frame {
+  margin-inline: auto;
 }
 
 .poem__title {
@@ -505,6 +544,7 @@ p {
 }
 
 .text-center { text-align: center; }
+.text-center p { max-width: none; }
 
 .eyebrow {
   display: inline-block;
@@ -535,14 +575,29 @@ p {
 }
 
 .card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   font-size: var(--fs-h3);
   margin-bottom: var(--space-xs);
   color: var(--color-terra-dark);
 }
 
+/* Binnen een gecentreerde titel staat het icoon los boven de tekst, niet inline ervoor */
+.card__title .icon-inline {
+  margin-right: 0;
+  margin-bottom: var(--space-xs);
+}
+
 /* Kader-variant met dunne accentrand links — handig voor quotes, info-blokken */
 .card--accent {
+  text-align: center;
   border-left: 4px solid var(--color-mos);
+}
+
+.card--accent p {
+  max-width: none;
 }
 
 
@@ -617,9 +672,19 @@ p {
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
 
-/* Auto-fit variant: kolommen passen zich automatisch aan beschikbare ruimte aan */
+/* Auto-fit variant: flexbox met wrap, zodat een onvolledige laatste rij
+   (bv. 5 boxen op een grid dat er 4 per rij toont) centraal uitlijnt in
+   plaats van links te blijven hangen — dat kan een CSS Grid niet vanzelf. */
 .grid--auto {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.grid--auto > * {
+  flex: 1 1 240px;
+  max-width: 320px;
 }
 
 /* Flex-rij variant voor horizontale lijsten (bv. tags, kleine items) */

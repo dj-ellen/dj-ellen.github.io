@@ -176,7 +176,7 @@ body {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-mos-dark);
   letter-spacing: 0.03em;
 }
 
@@ -533,7 +533,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
-h1 { font-size: var(--fs-h1); }
+h1 { font-size: var(--fs-h1); color: var(--color-mos-dark); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 

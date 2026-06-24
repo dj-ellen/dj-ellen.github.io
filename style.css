@@ -503,6 +503,17 @@ body {
 .photo-frame--wide { aspect-ratio: 16 / 9; }
 .photo-frame--portrait { aspect-ratio: 3 / 4; }
 
+/* Affiche-variant: geen vast kader-ratio en geen bijsnijden — de volledige
+   flyer blijft zichtbaar, de hoogte van de afbeelding bepaalt het kader */
+.photo-frame--poster {
+  aspect-ratio: auto;
+}
+
+.photo-frame--poster img {
+  height: auto;
+  object-fit: contain;
+}
+
 /* Gecentreerde, smallere variant — bijvoorbeeld een fotokader bij een gedicht */
 .photo-frame--centered {
   max-width: 320px;

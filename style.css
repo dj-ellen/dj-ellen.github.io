@@ -356,9 +356,17 @@ body {
     flex: 0 1 auto;
   }
 
+  .hero__intro {
+    margin-bottom: var(--space-xs);
+  }
+
   .hero__visual {
     max-width: 150px;
-    margin: var(--space-sm) auto 0;
+    margin: 0 auto var(--space-xs);
+  }
+
+  .hero__text .flex-row {
+    justify-content: center;
   }
 }
 

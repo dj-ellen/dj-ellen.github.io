@@ -499,6 +499,12 @@ body {
   display: block;
 }
 
+.photo-frame svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .photo-frame--square { aspect-ratio: 1 / 1; }
 .photo-frame--wide { aspect-ratio: 16 / 9; }
 .photo-frame--portrait { aspect-ratio: 3 / 4; }

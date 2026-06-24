@@ -336,6 +336,11 @@ body {
   max-width: 320px;
 }
 
+.hero__visual svg {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;

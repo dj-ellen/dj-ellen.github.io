@@ -210,7 +210,7 @@ body {
 .navbar__toggle span {
   width: 26px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: var(--color-terra);
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -352,8 +352,8 @@ body {
   }
 
   .hero__visual {
-    max-width: 220px;
-    margin: 0 auto;
+    max-width: 150px;
+    margin: var(--space-sm) auto 0;
   }
 }
 

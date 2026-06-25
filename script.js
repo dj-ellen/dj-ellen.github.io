@@ -18,40 +18,40 @@ const FOOTER_HTML = `
               <circle cx="12" cy="8" r="3.5"/>
               <path d="M5 20 C5 15.5, 8 13 12 13 C16 13, 19 15.5, 19 20"/>
             </svg>
-            Ellen Voorbeeld
+            Ellen Jansen
           </li>
           <li>
             <svg class="icon-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 21 C8 17, 5 13.5, 5 9.5 C5 6, 8 3.5, 12 3.5 C16 3.5, 19 6, 19 9.5 C19 13.5, 16 17, 12 21 Z"/>
               <circle cx="12" cy="9.5" r="2.5"/>
             </svg>
-            Watervloedstraat 20, 3012 Wilsele
+            België, Wilsele in Leuven
           </li>
           <li>
             <svg class="icon-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2"/>
               <path d="M4 7 L12 13 L20 7"/>
             </svg>
-            <a href="mailto:info@djellen.be">info@djellen.be</a>
+            <a href="mailto:ellen@ellenjansen.be">ellen@ellenjansen.be</a>
           </li>
           <li>
             <svg class="icon-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M6 4 C5 4, 4 5, 4 6 C4 14, 10 20, 18 20 C19 20, 20 19, 20 18 L20 16 C20 15, 19 14.5, 18.5 14.5 L15.5 14 C15 14, 14.5 14.3, 14.3 14.7 L13.5 16.2 C11.3 15, 9 12.7, 7.8 10.5 L9.3 9.7 C9.7 9.5, 10 9, 10 8.5 L9.5 5.5 C9.5 5, 9 4, 8 4 Z"/>
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
             </svg>
-            <a href="tel:+32470000000">+32 470 00 00 00</a>
+            <a href="https://www.facebook.com/ellen.jansen.731">www.facebook.com</a>
           </li>
           <li>
             <svg class="icon-inline" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="12" cy="12" r="9"/>
               <path d="M3 12 L21 12 M12 3 C9.5 6, 9.5 18, 12 21 M12 3 C14.5 6, 14.5 18, 12 21"/>
             </svg>
-            <a href="https://www.djellen.be">www.djellen.be</a>
+            <a href="https://www.ellenjansen.be">www.ellenjansen.be</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; 2026 DJ Ellen. Alle rechten voorbehouden.</p>
+      <p>&copy; 2026 Ellen Jansen. Alle rechten voorbehouden.</p>
     </div>
   </div>
 `;

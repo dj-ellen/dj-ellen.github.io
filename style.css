@@ -438,7 +438,7 @@ body {
 }
 
 
-/* --- Gedichten: rustige, gecentreerde tekstblokken --- */
+/* --- Teksten: rustige, gecentreerde tekstblokken --- */
 .poem.card {
   flex: 1 1 420px;
   max-width: 520px;

@@ -507,6 +507,10 @@ body {
   flex: none;
 }
 
+.poems-stack .photo-frame {
+  max-width: 480px;
+}
+
 
 /* --- Fotokaders: herbruikbare container voor affiches/foto's binnen het palet --- */
 .photo-frame {

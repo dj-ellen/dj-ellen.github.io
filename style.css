@@ -330,7 +330,6 @@ body {
 }
 
 .hero__title {
-  font-style: italic;
   font-size: var(--fs-h4);
   color: var(--color-terra-dark);
   margin-bottom: var(--space-xs);

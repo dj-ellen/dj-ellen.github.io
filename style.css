@@ -274,6 +274,7 @@ body {
   color: var(--color-zand);
   opacity: 0.9;
   font-size: 1.05rem;
+  text-align: center;
 }
 
 /* Kleinere navigatielinks in de footer */

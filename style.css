@@ -33,6 +33,7 @@
   --fs-h1: clamp(2.4rem, 5vw, 4rem);
   --fs-h2: clamp(1.8rem, 3.5vw, 2.6rem);
   --fs-h3: clamp(1.3rem, 2.2vw, 1.7rem);
+  --fs-h4: clamp(1.8rem, 3.5vw, 2.6rem);
   --fs-body: 1.05rem;
   --fs-small: 0.875rem;
 
@@ -327,6 +328,14 @@ body {
   flex: 1 1 420px;
 }
 
+.hero__title {
+  font-style: italic;
+  font-size: var(--fs-h4);
+  color: var(--color-terra-dark);
+  margin-bottom: var(--space-xs);
+  position: relative;
+}
+
 .hero__intro {
   font-size: 1.15rem;
   max-width: 50ch;
@@ -574,6 +583,7 @@ h1, h2, h3, h4 {
 h1 { font-size: var(--fs-h1); color: var(--color-mos-dark); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
 
 p {
   margin-bottom: var(--space-sm);

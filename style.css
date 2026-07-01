@@ -364,12 +364,10 @@ body {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding-block: var(--space-lg);
+    padding-block: var(--space-md);
+    gap: var(--space-sm);
   }
 
-  /* Reset flex-basis: de breedte-waarden (420px/280px) mogen niet als
-     hoogte-basis gelden zodra de richting naar column kantelt — anders
-     reserveert de browser onnodige verticale ruimte op het omslagpunt. */
   .hero__text,
   .hero__visual {
     flex: 0 1 auto;
@@ -380,7 +378,7 @@ body {
   }
 
   .hero__visual {
-    max-width: 150px;
+    max-width: 240px;
     margin: 0 auto var(--space-xs);
   }
 

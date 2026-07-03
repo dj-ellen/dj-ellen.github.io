@@ -10,21 +10,35 @@
    Centraal kleurenpalet, typografie en spacing-schaal.
    Wijzig hier en de hele site past zich aan.
    -------------------------------------------------------------------------- */
+/*:root {
+  --color-terra: #c1612f;
+  --color-terra-dark: #9c4a21;
+  --color-oker: #c98a2c;
+  --color-mos: #6b7a4f;
+  --color-mos-dark: #525e3c;
+
+  --color-text: #3b2f28;
+  --color-text-zacht: #5c4d42;
+  --color-zand: #f3ead9;      
+  --color-zand-donker: #e8dcc4;
+  --color-wit-warm: #fdfaf4;   
+
+  --color-body-bg: #ece2cd;    */
+
 :root {
-  /* Kleuren — aards en warm */
-  --color-terra: #c1612f;        /* terracotta — primaire accentkleur (knoppen, links) */
-  --color-terra-dark: #9c4a21;   /* donkerder terra — hover states */
-  --color-oker: #c98a2c;         /* oker — secundair accent */
-  --color-mos: #6b7a4f;          /* mosgroen — tertiair accent, natuurlijke details */
-  --color-mos-dark: #525e3c;     /* donker mosgroen — hover op groene elementen */
+  --color-terra: #b5562e;
+  --color-terra-dark: #8a3f20;
+  --color-oker: #b6802a;
+  --color-mos: #5c6a46;
+  --color-mos-dark: #46512f;
 
-  --color-text: #3b2f28;         /* diep warm bruin — hoofdtekstkleur */
-  --color-text-zacht: #5c4d42;   /* zachtere tekst voor subteksten */
-  --color-zand: #f3ead9;         /* zachte zandkleur — paginacontainer-achtergronden */
-  --color-zand-donker: #e8dcc4;  /* iets donkerder zand — randen, scheidingen */
-  --color-wit-warm: #fdfaf4;     /* warm bijna-wit — kaarten, lichte vlakken */
+  --color-text: #f2e9da;
+  --color-text-zacht: #d8c9b0;
+  --color-zand: #4a3f34;
+  --color-zand-donker: #5c4f40;
+  --color-wit-warm: #3a3129;
 
-  --color-body-bg: #ece2cd;      /* basis achtergrondkleur van de pagina (onder patroon) */
+  --color-body-bg: #2f2820;
 
   /* Typografie */
   --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -160,7 +174,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(243, 234, 217, 0.92);
+  /*background-color: rgba(243, 234, 217, 0.92);*/
+  background-color: rgba(47, 40, 32, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-zand-donker);
 }
@@ -177,7 +192,8 @@ body {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--color-mos-dark);
+  /*color: var(--color-mos-dark);*/
+  color: var(--color-oker);
   letter-spacing: 0.03em;
 }
 
@@ -247,8 +263,10 @@ body {
 
 /* --- Footer --- */
 .site-footer {
-  background-color: var(--color-text);
-  color: var(--color-zand);
+/*  background-color: var(--color-text);
+  color: var(--color-zand);*/
+  background-color: var(--color-wit-warm);
+  color: var(--color-text);
   padding-block: var(--space-lg) var(--space-md);
   text-align: center;
 }
@@ -258,7 +276,8 @@ body {
 }
 
 .site-footer a:hover {
-  color: var(--color-wit-warm);
+  /*color: var(--color-wit-warm);*/
+  color: var(--color-text);  
 }
 
 .footer__grid {
@@ -271,7 +290,8 @@ body {
 /* Tagline in de footer: lichte, warme zandkleur i.p.v. de te donkere
    standaard tekstkleur, voor voldoende contrast op de donkere achtergrond */
 .footer__tagline {
-  color: var(--color-zand);
+  /*color: var(--color-zand);*/
+  color: var(--color-text-zacht);
   opacity: 0.9;
   font-size: 1.05rem;
   text-align: center;
@@ -300,7 +320,8 @@ body {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: var(--fs-small);
-  color: var(--color-zand);
+  /*color: var(--color-zand);*/
+  color: var(--color-text-zacht);  
   opacity: 0.9;
 }
 
@@ -596,7 +617,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
-h1 { font-size: var(--fs-h1); color: var(--color-mos-dark); }
+h1 { font-size: var(--fs-h1); color: var(--color-oker); } /*color: var(--color-mos-dark); }*/
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 h4 { font-size: var(--fs-h4); }
@@ -685,13 +706,15 @@ p {
 /* Primaire knop — terracotta, gevuld */
 .btn--primary {
   background-color: var(--color-terra);
-  color: var(--color-wit-warm);
+/*  color: var(--color-wit-warm);*/
+  color: var(--color-text);  
 }
 
 .btn--primary:hover {
   background-color: var(--color-terra-dark);
   transform: translateY(-2px);
-  color: var(--color-wit-warm);
+/*  color: var(--color-wit-warm);*/
+  color: var(--color-text);  
 }
 
 /* Secundaire knop — oker outline */
@@ -703,13 +726,15 @@ p {
 
 .btn--secondary:hover {
   background-color: var(--color-oker);
-  color: var(--color-wit-warm);
+/*  color: var(--color-wit-warm);*/
+  color: var(--color-text);  
 }
 
 /* Mixcloud / luisterknop — mosgroen, specifiek voor embedded sets */
 .btn--listen {
   background-color: var(--color-mos);
-  color: var(--color-wit-warm);
+/*  color: var(--color-wit-warm);*/
+  color: var(--color-text);  
 }
 
 .btn--listen:hover {

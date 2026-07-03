@@ -51,7 +51,7 @@
   --color-text-zacht: #dccdb8;
   --color-zand: #4d4133;
   --color-zand-donker: #ad9e85;
-  --color-wit-warm: #58493a;
+  --color-wit-warm: #705d4c;
 
   --color-body-bg: #453a2e;
 
@@ -163,15 +163,22 @@ textarea:focus-visible {
    Vast op de achtergrond (fixed) zodat het niet meebeweegt met scroll-content,
    en met een laag zandkleur erboven voor leesbaarheid.
    -------------------------------------------------------------------------- */
-body {
+/*body {
   background-color: var(--color-body-bg);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%236b7a4f' stroke-width='1.1' opacity='0.16'%3E%3Cpath d='M30 130 C30 100 45 80 30 50 C15 80 30 100 30 130 Z'/%3E%3Cpath d='M30 95 C30 95 45 90 50 80'/%3E%3Cpath d='M30 95 C30 95 15 90 10 80'/%3E%3Ccircle cx='120' cy='35' r='14'/%3E%3Cpath d='M120 21 L120 49 M106 35 L134 35 M111 26 L129 44 M111 44 L129 26'/%3E%3Cpath d='M75 120 Q90 105 105 120 Q90 135 75 120 Z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 160px 160px;
   background-attachment: fixed;
+}*/
+body {
+  background-color: var(--color-body-bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23c9b79a' stroke-width='1.1' opacity='0.14'%3E%3Cpath d='M55 165 C38 152 33 122 55 90 C77 122 72 152 55 165 Z'/%3E%3Cpath d='M55 165 L55 96'/%3E%3Cpath d='M55 148 L43 136 M55 148 L67 136'/%3E%3Cpath d='M55 128 L45 118 M55 128 L65 118'/%3E%3Cpath d='M55 108 L48 101 M55 108 L62 101'/%3E%3Cpath d='M55 165 Q59 173 67 175'/%3E%3Cellipse cx='150' cy='78' rx='7' ry='5' transform='rotate(-18 150 78)' fill='%23c9b79a' stroke='none'/%3E%3Cpath d='M156 75 L156 28'/%3E%3Cpath d='M156 28 C167 31 169 43 160 51'/%3E%3Cellipse cx='27' cy='53' rx='4.5' ry='3.2' transform='rotate(-18 27 53)' fill='%23c9b79a' stroke='none'/%3E%3Cpath d='M31 51 L31 22'/%3E%3Cpath d='M31 22 C39 24 40 33 34 39'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-attachment: fixed;
 }
-
 
 /* --------------------------------------------------------------------------
    4. LAYOUT — ALGEMENE STRUCTUUR

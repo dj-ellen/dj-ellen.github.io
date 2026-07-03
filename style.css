@@ -23,7 +23,7 @@
   --color-zand-donker: #e8dcc4;
   --color-wit-warm: #fdfaf4;   
 
-  --color-body-bg: #ece2cd;    */
+  --color-body-bg: #ece2cd;    
 
 :root {
   --color-terra: #b5562e;
@@ -38,7 +38,23 @@
   --color-zand-donker: #5c4f40;
   --color-wit-warm: #3a3129;
 
-  --color-body-bg: #2f2820;
+  --color-body-bg: #2f2820;*/
+
+  :root {
+  --color-terra: #ab5029;
+  --color-terra-dark: #82401f;
+  --color-oker: #e6b665;
+  --color-mos: #5f6d44;
+  --color-mos-dark: #4a5535;
+
+  --color-text: #f7efe1;
+  --color-text-zacht: #dccdb8;
+  --color-zand: #4d4133;
+  --color-zand-donker: #ad9e85;
+  --color-wit-warm: #58493a;
+
+  --color-body-bg: #453a2e;
+}
 
   /* Typografie */
   --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -174,8 +190,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  /*background-color: rgba(243, 234, 217, 0.92);*/
-  background-color: rgba(47, 40, 32, 0.92);
+  /*background-color: rgba(243, 234, 217, 0.92);
+  background-color: rgba(47, 40, 32, 0.92);*/
+  background-color: rgba(69, 58, 46, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-zand-donker);
 }
@@ -213,7 +230,8 @@ body {
 
 .navbar__links a:hover,
 .navbar__links a.is-active {
-  color: var(--color-terra);
+/*  color: var(--color-terra);*/
+  color: var(--color-oker);
 }
 
 /* Hamburger-knop (mobiel) — puur CSS, geen JS-library nodig */
@@ -227,7 +245,7 @@ body {
 .navbar__toggle span {
   width: 26px;
   height: 2px;
-  background-color: var(--color-terra);
+  background-color: var(--color-oker); /*var(--color-terra);*/
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -666,7 +684,8 @@ p {
   text-align: center;
   font-size: var(--fs-h3);
   margin-bottom: var(--space-xs);
-  color: var(--color-terra-dark);
+  /*color: var(--color-terra-dark);*/
+  color: var(--color-oker);
 }
 
 /* Binnen een gecentreerde titel staat het icoon los boven de tekst, niet inline ervoor */

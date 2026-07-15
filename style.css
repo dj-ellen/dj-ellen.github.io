@@ -792,7 +792,7 @@ p {
 }
 
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
-/*.grid--3 { grid-template-columns: repeat(3, 1fr); }*/
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 /* Auto-fit variant: flexbox met wrap, zodat een onvolledige laatste rij
@@ -810,7 +810,7 @@ p {
   max-width: 320px;
 }
 
-.grid--3 {
+/*.grid--3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -819,7 +819,7 @@ p {
 
 .grid--3 > * {
   flex: 0 1 calc(33.333% - var(--space-sm));
-}
+}*/
 
 /* Flex-rij variant voor horizontale lijsten (bv. tags, kleine items) */
 .flex-row {

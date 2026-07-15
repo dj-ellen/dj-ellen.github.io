@@ -116,13 +116,13 @@ img, svg {
 }
 
 a {
-  color: var(--color-terra);
+  color: var(--color-oker);
   text-decoration: none;
   transition: color var(--transition);
 }
 
 a:hover {
-  color: var(--color-terra-dark);
+  color: var(--color-wit-warm);
 }
 
 ul, ol {

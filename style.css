@@ -814,11 +814,11 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-lg); 
+  gap: var(--space-sm); 
 }
 
 .grid--3 > * {
-  flex: 0 1 calc(33.333% - var(--space-lg));
+  flex: 0 1 calc(33.333% - var(--space-sm));
 }
 
 /* Flex-rij variant voor horizontale lijsten (bv. tags, kleine items) */

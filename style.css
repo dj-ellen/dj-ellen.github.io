@@ -459,12 +459,12 @@ body {
 
 .event-meta {
   margin-top: var(--space-xs);
+  justify-content: center;
 }
 
 .event-meta li {
   color: var(--color-text-zacht);
   margin-bottom: 0.25rem;
-  justify-content: center;
 }
 
 .event-meta strong {

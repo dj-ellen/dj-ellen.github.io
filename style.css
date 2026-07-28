@@ -459,7 +459,6 @@ body {
 
 .event-meta {
   margin-top: var(--space-xs);
-  justify-content: center;
 }
 
 .event-meta li {

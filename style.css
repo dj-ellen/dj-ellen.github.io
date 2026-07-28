@@ -445,9 +445,11 @@ body {
 /* --- Evenement-kaarten (agenda) --- */
 .event-card {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+/*  text-align: center;  flex-wrap: wrap;
   gap: var(--space-md);
-  align-items: stretch;
+  align-items: stretch; */
 }
 
 .event-card__info {

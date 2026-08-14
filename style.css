@@ -848,6 +848,40 @@ p {
   white-space: nowrap;
 }
 
+/* --------------------------------------------------------------------------
+   Event detail — bereikbaarheid
+   Deze regels gelden alleen voor event-detail.html.
+   -------------------------------------------------------------------------- */
+.event-detail .travel-notice {
+  text-align: left;
+}
+
+.event-detail .travel-notice__warning {
+  color: #ff1a1a;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.event-detail .travel-notice__important {
+  font-weight: 700;
+}
+
+.event-detail .travel-notice__routes {
+  list-style: disc;
+  margin: calc(var(--space-xs) * -1) 0 var(--space-sm) 1.5rem;
+}
+
+.event-detail .travel-notice__routes li {
+  color: var(--color-text-zacht);
+  margin-bottom: 0.25rem;
+}
+
+.event-detail .travel-notice__closing {
+  margin: var(--space-md) 0 0;
+  font-weight: 600;
+}
+
 
 /* --------------------------------------------------------------------------
    10. RESPONSIVE — MOBIEL (≤ 768px)
